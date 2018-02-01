@@ -36,10 +36,10 @@ jspm_packages/
 .editorconfig
 
 # testing
-/coverage
+**/coverage
 
 # production
-/build
+**/build
 
 # misc
 .DS_Store
