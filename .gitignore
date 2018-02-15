@@ -3,37 +3,37 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 # IntelliJ project files
-.idea
-*.iml
-out
-gen
+**/.idea
+**/*.iml
+**/out
+**/gen
 
 # Node template
 # Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+**/logs
+**/*.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
 
 # Dependency directories
-node_modules/
-jspm_packages/
+**/node_modules/
+**/jspm_packages/
 
 # Optional npm cache directory
-.npm
+**/.npm
 
 # Optional eslint cache
-.eslintcache
+**/.eslintcache
 
 # Yarn Integrity file
-.yarn-integrity
+**/.yarn-integrity
 
 # dotenv environment variables file
-.env
+**/.env
 
 # editor config
-.editorconfig
+**/.editorconfig
 
 # testing
 **/coverage
@@ -42,13 +42,13 @@ jspm_packages/
 **/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+**/.DS_Store
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
 
