@@ -1,6 +1,6 @@
 import express from 'express';
 import setMiddlewares from './config/middlewares';
-import routes from './router';
+import { router } from './api';
 
 // Declare an app from express
 const app = express();
@@ -9,6 +9,6 @@ const app = express();
 setMiddlewares(app);
 
 // Set API routes
-app.use('/api', routes);
+app.use('/api', router);
 
 export default app;
