@@ -1,5 +1,5 @@
 import express from 'express';
-import setMiddlewares from './middlewares/';
+import setMiddlewares from './config/middlewares';
 import routes from './routes/';
 
 // Declare an app from express

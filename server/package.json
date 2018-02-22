@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack --colors --progress"
+    "start": "cross-env NODE_ENV=development webpack --colors --progress"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
@@ -21,6 +21,10 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^2.3.1",
+    "cross-env": "^5.1.3",
+    "dotenv": "^5.0.0",
+    "dotenv-webpack": "^1.5.4",
     "source-map-support": "^0.5.3",
     "start-server-webpack-plugin": "^2.2.1",
     "webpack": "^3.11.0",

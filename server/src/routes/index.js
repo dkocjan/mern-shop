@@ -1,6 +1,6 @@
-import express from 'express';
+import { Router } from 'express';
 
-const router = new express.Router();
+const router = new Router();
 
 // catch all
 router.all('*', (req, res) => {

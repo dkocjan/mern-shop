@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: ['webpack/hot/poll?1000', './src/index'],
@@ -43,9 +44,13 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': { BUILD_TARGET: JSON.stringify('server') },
+    new Dotenv({
+      path: './.env', // Path to .env file (this is the default)
+      // safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
     }),
+    // new webpack.DefinePlugin({
+    //   'process.env': { BUILD_TARGET: JSON.stringify('server') },
+    // }),
     new webpack.BannerPlugin({
       banner: 'require("source-map-support").install();',
       raw: true,
