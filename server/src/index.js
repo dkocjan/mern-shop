@@ -17,7 +17,7 @@ server.listen(config.PORT, err => {
     console.log(`
     Everything works! ${chalk.bold.red('🔥')}
     Server listening on port ${chalk.bold.blue(config.PORT)}
-    Environment: ${chalk.bold.green(process.env.NODE_ENV)}
+    Environment: ${chalk.bold.green(config.ENV)}
     `);
   }
 });
