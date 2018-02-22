@@ -8,8 +8,8 @@ const defaultConfig = {
 
 // development config
 const devConfig = {
-  MONGO_URL: process.env.MONGO_URL,
-  JWT_SECRET: process.env.JWT_SECRET,
+  MONGO_URL: process.env.MONGO_URL_DEV,
+  JWT_SECRET: process.env.JWT_SECRET_DEV,
 };
 
 // production config
