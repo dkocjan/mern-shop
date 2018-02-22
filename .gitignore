@@ -1,6 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
-### Example user template template
-# Created by .ignore support plugin (hsz.mobi)
 
 # IntelliJ project files
 **/.idea
@@ -40,6 +38,7 @@
 
 # production
 **/build
+**/dist
 
 # misc
 **/.DS_Store
