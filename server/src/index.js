@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import { createServer } from 'http';
 
 import config from './config/config';
+import './config/database';
 import app from './server';
 
 const server = http.createServer(app);

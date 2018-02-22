@@ -1,6 +1,6 @@
 import express from 'express';
 import setMiddlewares from './config/middlewares';
-import routes from './routes/';
+import routes from './router';
 
 // Declare an app from express
 const app = express();
