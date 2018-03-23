@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mlab": {
+    "host": "ds237848.mlab.com",
+    "port": 37848,
+    "url": "mongodb://dkocjan:dkocjan@ds237848.mlab.com:37848/mern-shop",
+    "database": "mern-shop",
+    "password": "dkocjan",
+    "name": "mlab",
+    "user": "dkocjan",
+    "connector": "mongodb"
+  }
+}

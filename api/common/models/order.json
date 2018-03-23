@@ -1,0 +1,45 @@
+{
+  "name": "order",
+  "plural": "orders",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "user": {
+      "type": "number",
+      "required": true
+    },
+    "items": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "paid": {
+      "type": "boolean",
+      "default": false
+    },
+    "shipping": {
+      "type": "string",
+      "required": true
+    },
+    "shipped": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

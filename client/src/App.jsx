@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import './App.css';
 
 class App extends PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       hello: 'hello',
     };
