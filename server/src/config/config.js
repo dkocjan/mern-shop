@@ -5,7 +5,6 @@ require('dotenv').config();
 const defaultConfig = {
   PORT: process.env.PORT,
   ENV: process.env.NODE_ENV,
-  // disableAuth: true,
 };
 
 // development config

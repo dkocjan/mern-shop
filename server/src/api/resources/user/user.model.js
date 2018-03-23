@@ -1,7 +1,6 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
 
-// Define user model
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -30,4 +29,4 @@ userSchema.methods = {
   },
 };
 
-export const User = model('user', userSchema);
+export const User = mongoose.model('user', userSchema);

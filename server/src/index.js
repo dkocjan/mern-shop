@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
+import http from 'http';
 import chalk from 'chalk';
 import { createServer } from 'http';
 
 import config from './config/config';
 import './config/database';
-import app from './app';
+import app from './server';
 
-const server = createServer(app);
+const server = http.createServer(app);
 let currentApp = app;
 
 server.listen(config.PORT, err => {
