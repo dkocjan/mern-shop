@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+const model = mongoose.model;
 
-const userSchema = new mongoose.Schema(
+// Define user model
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -16,8 +19,8 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.methods = {
-  authenticate(plaintTextPassword) {
-    return bcrypt.compareSync(plainTextPword, this.password);
+  authenticate(plainTextPassword) {
+    return bcrypt.compareSync(plainTextPassword, this.password);
   },
   hashPassword(plaintTextPassword) {
     if (!plaintTextPassword) {
@@ -29,4 +32,4 @@ userSchema.methods = {
   },
 };
 
-export const User = mongoose.model('user', userSchema);
+export const User = model('user', userSchema);

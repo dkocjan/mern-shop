@@ -85,6 +85,6 @@ export const verifyUser = () => (req, res, next) => {
 };
 
 export const signToken = id =>
-  jwt.sign({ id }, config.secrets.JWT_SECRET, { expiresIn: config.expireTime });
+  jwt.sign({ id }, config.JWT_SECRET, { expiresIn: '30d' });
 
 export const protect = [decodeToken(), getFreshUser()];

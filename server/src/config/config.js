@@ -3,14 +3,16 @@ require('dotenv').config();
 
 // default config
 const defaultConfig = {
-  PORT: process.env.PORT,
+  PORT: process.env.PORT || 3000,
   ENV: process.env.NODE_ENV,
+  // disableAuth: true,
 };
 
 // development config
 const devConfig = {
   MONGO_URL: process.env.MONGO_URL_DEV,
   JWT_SECRET: process.env.JWT_SECRET_DEV,
+  MONGOOSE_DEBUG: true,
 };
 
 // test config

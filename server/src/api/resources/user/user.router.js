@@ -1,5 +1,8 @@
 import { Router } from 'express';
-import userController from './user.controller';
+
+export const userRouter = new Router();
+
+/*import userController from './user.controller';
 
 export const userRouter = new Router();
 
@@ -15,3 +18,4 @@ userRouter
   .get(userController.getOne)
   .put(userController.updateOne)
   .delete(userController.createOne);
+*/
