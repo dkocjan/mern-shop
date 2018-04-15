@@ -15,7 +15,7 @@ import {
   Grid,
   Label,
   Button,
-  Icon
+  Icon,
 } from 'semantic-ui-react';
 
 const ErrorHandler = console.error; // eslint-disable-line
@@ -24,7 +24,7 @@ class Product extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      product: null
+      product: null,
     };
   }
 
@@ -50,30 +50,18 @@ class Product extends PureComponent {
       <Dimmer.Dimmable as={Segment} raised>
         {loading ? (
           <Grid centered>
-            <Placeholder
-              type="rect"
-              style={{ width: 420, height: 420 }}
-              ready={false}
-            >
+            <Placeholder type="rect" style={{ width: 420, height: 420 }} ready={false}>
               {' '}
             </Placeholder>
           </Grid>
         ) : (
-          <Image
-            src={`data:image/png;base64,${this.state.product.images[0]}`}
-            centered
-          />
+          <Image src={`data:image/png;base64,${this.state.product.images[0]}`} centered />
         )}
 
         <Header as="h1" textAlign="center">
           {loading ? (
             <Segment vertical textAlign="center">
-              <Placeholder
-                type="text"
-                showLoadingAnimation
-                rows={3}
-                ready={false}
-              >
+              <Placeholder type="text" showLoadingAnimation rows={3} ready={false}>
                 {' '}
               </Placeholder>
             </Segment>
@@ -97,12 +85,7 @@ class Product extends PureComponent {
 
         <Segment vertical textAlign="center">
           {loading ? (
-            <Placeholder
-              type="text"
-              rows={5}
-              showLoadingAnimation
-              ready={false}
-            >
+            <Placeholder type="text" rows={5} showLoadingAnimation ready={false}>
               {' '}
             </Placeholder>
           ) : (
@@ -111,12 +94,7 @@ class Product extends PureComponent {
         </Segment>
         <Segment vertical textAlign="center">
           {loading ? (
-            <Placeholder
-              type="text"
-              rows={2}
-              showLoadingAnimation
-              ready={false}
-            >
+            <Placeholder type="text" rows={2} showLoadingAnimation ready={false}>
               {' '}
             </Placeholder>
           ) : (
@@ -126,13 +104,10 @@ class Product extends PureComponent {
                 Add to cart
               </Button>
               <Label as="a" basic color="blue" pointing="left">
-                {this.state.product.price.toLocaleString(
-                  this.props.currency.countryCode,
-                  {
-                    style: 'currency',
-                    currency: this.props.currency.name
-                  }
-                )}
+                {this.state.product.price.toLocaleString(this.props.currency.countryCode, {
+                  style: 'currency',
+                  currency: this.props.currency.name,
+                })}
               </Label>
             </Button>
           )}
@@ -144,13 +119,13 @@ class Product extends PureComponent {
 
 Product.propTypes = {
   match: PropTypes.shape({
-    params: PropTypes.objectOf(PropTypes.string)
+    params: PropTypes.objectOf(PropTypes.string),
   }).isRequired,
   API_URL: PropTypes.string.isRequired,
   currency: PropTypes.shape({
     name: PropTypes.string,
-    countryCode: PropTypes.string
-  }).isRequired
+    countryCode: PropTypes.string,
+  }).isRequired,
 };
 
 export default Product;

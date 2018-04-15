@@ -30,19 +30,19 @@ class App extends PureComponent {
       isAdmin: true,
       currency: {
         name: 'PLN',
-        countryCode: 'pl-PL'
+        countryCode: 'pl-PL',
       },
       filterText: '',
       cart: [
         {
           id: 2,
-          amount: 4
+          amount: 4,
         },
         {
           id: 1,
-          amount: 1
-        }
-      ]
+          amount: 1,
+        },
+      ],
     };
 
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -125,11 +125,7 @@ class App extends PureComponent {
               exact
               path="/p/:name/:id"
               render={props => (
-                <Product
-                  API_URL={API_URL}
-                  currency={this.state.currency}
-                  {...props}
-                />
+                <Product API_URL={API_URL} currency={this.state.currency} {...props} />
               )}
             />
             {/* Cart */}
@@ -162,9 +158,7 @@ class App extends PureComponent {
             <Route
               exact
               path="/admin"
-              render={props => (
-                <Admin {...props} isAdmin={this.state.isAdmin} />
-              )}
+              render={props => <Admin {...props} isAdmin={this.state.isAdmin} />}
             />
             {/* Not found */}
             <Route component={NotFound} />

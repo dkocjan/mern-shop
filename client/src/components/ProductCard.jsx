@@ -19,22 +19,15 @@ class ProductCard extends PureComponent {
         'purple',
         'pink',
         'brown',
-        'grey'
-      ]
+        'grey',
+      ],
     };
   }
 
   render() {
-    const col = this.state.colors[
-      Math.floor(Math.random() * this.state.colors.length)
-    ];
+    const col = this.state.colors[Math.floor(Math.random() * this.state.colors.length)];
     return (
-      <Card
-        color={col}
-        centered
-        as={Link}
-        to={`/p/${this.props.name}/${this.props.id}`}
-      >
+      <Card color={col} centered as={Link} to={`/p/${this.props.name}/${this.props.id}`}>
         <Image src={`data:image/png;base64,${this.props.images[0]}`} />
         <Card.Content>
           <Card.Header>{this.props.title}</Card.Header>
@@ -47,7 +40,7 @@ class ProductCard extends PureComponent {
           <Icon name="tag" />
           {this.props.price.toLocaleString(this.props.currency.countryCode, {
             style: 'currency',
-            currency: this.props.currency.name
+            currency: this.props.currency.name,
           })}
         </Card.Content>
       </Card>
@@ -66,8 +59,8 @@ ProductCard.propTypes = {
   id: PropTypes.string.isRequired,
   currency: PropTypes.shape({
     name: PropTypes.string,
-    countryCode: PropTypes.string
-  }).isRequired
+    countryCode: PropTypes.string,
+  }).isRequired,
 };
 
 export default ProductCard;

@@ -1,13 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Container,
-  Card,
-  Input,
-  Divider,
-  Dimmer,
-  Segment
-} from 'semantic-ui-react';
+import { Container, Card, Input, Divider, Dimmer, Segment } from 'semantic-ui-react';
 import CardPlaceholder from './CardPlaceholder';
 
 import ProductCard from './ProductCard';
@@ -63,12 +56,7 @@ class Home extends PureComponent {
             ))}
           </Card.Group>
         ) : (
-          <Dimmer.Dimmable
-            as={Card.Group}
-            style={{ height: 1000 }}
-            blurring
-            active
-          >
+          <Dimmer.Dimmable as={Card.Group} style={{ height: 1000 }} blurring active>
             <CardPlaceholder />
             <CardPlaceholder />
             <CardPlaceholder />
@@ -86,10 +74,10 @@ Home.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
   currency: PropTypes.shape({
     name: PropTypes.string,
-    countryCode: PropTypes.string
+    countryCode: PropTypes.string,
   }).isRequired,
   onUserInput: PropTypes.func.isRequired,
-  filterText: PropTypes.string.isRequired
+  filterText: PropTypes.string.isRequired,
 };
 
 export default Home;
