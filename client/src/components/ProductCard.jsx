@@ -19,8 +19,8 @@ class ProductCard extends PureComponent {
         'purple',
         'pink',
         'brown',
-        'grey',
-      ],
+        'grey'
+      ]
     };
   }
 
@@ -47,7 +47,7 @@ class ProductCard extends PureComponent {
           <Icon name="tag" />
           {this.props.price.toLocaleString(this.props.currency.countryCode, {
             style: 'currency',
-            currency: this.props.currency.name,
+            currency: this.props.currency.name
           })}
         </Card.Content>
       </Card>
@@ -64,7 +64,10 @@ ProductCard.propTypes = {
   category: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   id: PropTypes.string.isRequired,
-  currency: PropTypes.objectOf(PropTypes.string).isRequired,
+  currency: PropTypes.shape({
+    name: PropTypes.string,
+    countryCode: PropTypes.string
+  }).isRequired
 };
 
 export default ProductCard;

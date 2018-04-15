@@ -30,19 +30,19 @@ class App extends PureComponent {
       isAdmin: true,
       currency: {
         name: 'PLN',
-        countryCode: 'pl-PL',
+        countryCode: 'pl-PL'
       },
       filterText: '',
       cart: [
         {
           id: 2,
-          amount: 4,
+          amount: 4
         },
         {
           id: 1,
-          amount: 1,
-        },
-      ],
+          amount: 1
+        }
+      ]
     };
 
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -106,7 +106,7 @@ class App extends PureComponent {
 
           {/* Switch views */}
           <Switch>
-            {/* Home */}
+            {/* Home - Products */}
             <Route
               exact
               path="/"

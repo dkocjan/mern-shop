@@ -14,6 +14,8 @@ import {
   // Container,
   Grid,
   Label,
+  Button,
+  Icon
 } from 'semantic-ui-react';
 
 const ErrorHandler = console.error; // eslint-disable-line
@@ -22,7 +24,7 @@ class Product extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      product: null,
+      product: null
     };
   }
 
@@ -118,16 +120,21 @@ class Product extends PureComponent {
               {' '}
             </Placeholder>
           ) : (
-            <Label.Group size="massive" color="red">
-              <Label pointing>
-                <strong>
-                  {this.state.product.price.toLocaleString('pl-PL', {
+            <Button as="div" labelPosition="right" size="big">
+              <Button color="green" size="big">
+                <Icon name="shop" />
+                Add to cart
+              </Button>
+              <Label as="a" basic color="blue" pointing="left">
+                {this.state.product.price.toLocaleString(
+                  this.props.currency.countryCode,
+                  {
                     style: 'currency',
-                    currency: 'PLN',
-                  })}
-                </strong>
+                    currency: this.props.currency.name
+                  }
+                )}
               </Label>
-            </Label.Group>
+            </Button>
           )}
         </Segment>
       </Dimmer.Dimmable>
@@ -137,9 +144,13 @@ class Product extends PureComponent {
 
 Product.propTypes = {
   match: PropTypes.shape({
-    params: PropTypes.objectOf(PropTypes.string),
+    params: PropTypes.objectOf(PropTypes.string)
   }).isRequired,
   API_URL: PropTypes.string.isRequired,
+  currency: PropTypes.shape({
+    name: PropTypes.string,
+    countryCode: PropTypes.string
+  }).isRequired
 };
 
 export default Product;

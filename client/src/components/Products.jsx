@@ -6,7 +6,7 @@ import {
   Input,
   Divider,
   Dimmer,
-  Segment,
+  Segment
 } from 'semantic-ui-react';
 import CardPlaceholder from './CardPlaceholder';
 
@@ -29,7 +29,7 @@ class Home extends PureComponent {
 
     const filteredProducts = this.props.products.filter(
       product =>
-        product.name
+        product.title
           .concat(product.description)
           .toLowerCase()
           .indexOf(this.props.filterText.toLowerCase()) !== -1
@@ -64,21 +64,17 @@ class Home extends PureComponent {
           </Card.Group>
         ) : (
           <Dimmer.Dimmable
-            as={Segment}
+            as={Card.Group}
             style={{ height: 1000 }}
             blurring
-            dimmed
+            active
           >
-            <Dimmer active>
-              <Card.Group>
-                <CardPlaceholder />
-                <CardPlaceholder />
-                <CardPlaceholder />
-                <CardPlaceholder />
-                <CardPlaceholder />
-                <CardPlaceholder />
-              </Card.Group>
-            </Dimmer>
+            <CardPlaceholder />
+            <CardPlaceholder />
+            <CardPlaceholder />
+            <CardPlaceholder />
+            <CardPlaceholder />
+            <CardPlaceholder />
           </Dimmer.Dimmable>
         )}
       </Container>
@@ -88,9 +84,12 @@ class Home extends PureComponent {
 
 Home.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
-  currency: PropTypes.objectOf(PropTypes.string).isRequired,
+  currency: PropTypes.shape({
+    name: PropTypes.string,
+    countryCode: PropTypes.string
+  }).isRequired,
   onUserInput: PropTypes.func.isRequired,
-  filterText: PropTypes.string.isRequired,
+  filterText: PropTypes.string.isRequired
 };
 
 export default Home;
