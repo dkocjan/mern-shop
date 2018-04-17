@@ -14,6 +14,7 @@ import Product from './components/Product';
 import Account from './components/Account';
 import Category from './components/Category';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 import ErrorModal from './components/ErrorModal';
 
 const API_URL = 'http://localhost:3000/api';
@@ -33,19 +34,11 @@ class App extends PureComponent {
         countryCode: 'pl-PL',
       },
       filterText: '',
-      cart: [
-        {
-          id: 2,
-          amount: 4,
-        },
-        {
-          id: 1,
-          amount: 1,
-        },
-      ],
+      cart: [{ id: '5aa7a85f0ead4d12d87d825f', amount: 3 }],
     };
 
     this.handleUserInput = this.handleUserInput.bind(this);
+    this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
   }
 
   componentDidMount() {
@@ -81,6 +74,31 @@ class App extends PureComponent {
   }
 
   handleErrorModalClose = () => this.setState({ errorModalOpen: false });
+
+  handleAddToCart = id => {
+    const foundElement = this.state.cart.findIndex(element => element.id === id);
+
+    foundElement !== -1
+      ? this.setState({
+          cart: this.state.cart.map(
+            el => (el.id === id ? Object.assign({}, el, { amount: el.amount + 1 }) : el)
+          ),
+        })
+      : this.setState({
+          cart: [...this.state.cart, { id, amount: 1 }],
+        });
+  };
+
+  handleRemoveFromCart = id => {
+    const foundElement = this.state.cart.findIndex(element => element.id === id);
+    const cart = [];
+
+    if (foundElement !== -1) {
+      this.setState({
+        cart,
+      });
+    }
+  };
 
   render() {
     return (
@@ -125,14 +143,13 @@ class App extends PureComponent {
               exact
               path="/p/:name/:id"
               render={props => (
-                <Product API_URL={API_URL} currency={this.state.currency} {...props} />
+                <Product
+                  API_URL={API_URL}
+                  currency={this.state.currency}
+                  handleAddToCart={this.handleAddToCart}
+                  {...props}
+                />
               )}
-            />
-            {/* Cart */}
-            <Route
-              exact
-              path="/cart"
-              render={props => <Cart cart={this.state.cart} {...props} />}
             />
             {/* Category */}
             <Route
@@ -144,6 +161,33 @@ class App extends PureComponent {
                   currency={this.state.currency}
                   onUserInput={this.handleUserInput}
                   filterText={this.state.filterText}
+                  {...props}
+                />
+              )}
+            />
+            {/* Cart */}
+            <Route
+              exact
+              path="/cart"
+              render={props => (
+                <Cart
+                  products={this.state.products}
+                  cart={this.state.cart}
+                  currency={this.state.currency}
+                  handleRemoveFromCart={this.handleRemoveFromCart}
+                  {...props}
+                />
+              )}
+            />
+            {/* Checkout */}
+            <Route
+              exact
+              path="/checkout"
+              render={props => (
+                <Checkout
+                  products={this.state.products}
+                  cart={this.state.cart}
+                  currency={this.state.currency}
                   {...props}
                 />
               )}

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Card, Input, Divider, Dimmer, Segment } from 'semantic-ui-react';
+import { Container, Card, Input, Divider, Dimmer } from 'semantic-ui-react';
 import CardPlaceholder from './CardPlaceholder';
 
 import ProductCard from './ProductCard';
@@ -56,7 +56,7 @@ class Home extends PureComponent {
             ))}
           </Card.Group>
         ) : (
-          <Dimmer.Dimmable as={Card.Group} style={{ height: 1000 }} blurring active>
+          <Dimmer.Dimmable as={Card.Group} style={{ height: 1000 }} blurring active="true">
             <CardPlaceholder />
             <CardPlaceholder />
             <CardPlaceholder />

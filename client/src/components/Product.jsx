@@ -26,6 +26,7 @@ class Product extends PureComponent {
     this.state = {
       product: null,
     };
+    this.handleClickButton = this.handleClickButton.bind(this);
   }
 
   componentWillMount() {
@@ -42,6 +43,10 @@ class Product extends PureComponent {
       })
       .catch(err => ErrorHandler(`Error fetching data - ${err}`));
   }
+
+  handleClickButton = () => {
+    this.props.handleAddToCart(this.state.product.id);
+  };
 
   render() {
     const loading = !this.state.product;
@@ -99,7 +104,7 @@ class Product extends PureComponent {
             </Placeholder>
           ) : (
             <Button as="div" labelPosition="right" size="big">
-              <Button color="green" size="big">
+              <Button color="green" size="big" onClick={() => this.handleClickButton()}>
                 <Icon name="shop" />
                 Add to cart
               </Button>
@@ -126,6 +131,7 @@ Product.propTypes = {
     name: PropTypes.string,
     countryCode: PropTypes.string,
   }).isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
 };
 
 export default Product;
