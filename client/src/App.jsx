@@ -34,7 +34,7 @@ class App extends PureComponent {
         countryCode: 'pl-PL',
       },
       filterText: '',
-      cart: [{ id: '5aa7a85f0ead4d12d87d825f', amount: 3 }],
+      cart: [],
     };
 
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -202,7 +202,14 @@ class App extends PureComponent {
             <Route
               exact
               path="/admin"
-              render={props => <Admin {...props} isAdmin={this.state.isAdmin} />}
+              render={props => (
+                <Admin
+                  {...props}
+                  currency={this.state.currency}
+                  products={this.state.products}
+                  isAdmin={this.state.isAdmin}
+                />
+              )}
             />
             {/* Not found */}
             <Route component={NotFound} />

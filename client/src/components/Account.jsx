@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Container, Header, Icon, Segment } from 'semantic-ui-react';
+import { Container, Header, Icon, Grid, Form, Input, Button } from 'semantic-ui-react';
 
 class Account extends PureComponent {
   constructor(props) {
@@ -7,7 +7,7 @@ class Account extends PureComponent {
     this.state = {
       orders: [],
       data: {
-        address: 'test',
+        address: '',
       },
     };
   }
@@ -26,12 +26,63 @@ class Account extends PureComponent {
             {this.state.orders} {this.state.data.address}
           </Header.Subheader>
         </Header>
-        <Segment>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Segment>
+        <Grid divided columns={2}>
+          <Grid.Row>
+            <Grid.Column>
+              <Form>
+                <Form.Field>
+                  <label htmlFor="e-mail">E-mail</label>
+                  <Input type="email" action>
+                    <input />
+                    <Button animated="vertical" color="blue">
+                      <Button.Content hidden>Edit</Button.Content>
+                      <Button.Content visible>
+                        <Icon name="edit" />
+                      </Button.Content>
+                    </Button>
+                  </Input>
+                </Form.Field>
+                <Form.Field>
+                  <label htmlFor="password">Password</label>
+                  <Input type="password" action>
+                    <input />
+                    <Button animated="vertical" color="blue">
+                      <Button.Content hidden>Edit</Button.Content>
+                      <Button.Content visible>
+                        <Icon name="edit" />
+                      </Button.Content>
+                    </Button>
+                  </Input>
+                </Form.Field>
+                <Form.Field>
+                  <label htmlFor="address">Address</label>
+                  <Input type="text" action>
+                    <input />
+                    <Button animated="vertical" color="blue">
+                      <Button.Content hidden>Edit</Button.Content>
+                      <Button.Content visible>
+                        <Icon name="edit" />
+                      </Button.Content>
+                    </Button>
+                  </Input>
+                </Form.Field>
+                <Form.Field>
+                  <label htmlFor="phone">Phone</label>
+                  <Input type="phone" action>
+                    <input />
+                    <Button animated="vertical" color="blue">
+                      <Button.Content hidden>Edit</Button.Content>
+                      <Button.Content visible>
+                        <Icon name="edit" />
+                      </Button.Content>
+                    </Button>
+                  </Input>
+                </Form.Field>
+              </Form>
+            </Grid.Column>
+            <Grid.Column>&nbsp;</Grid.Column>
+          </Grid.Row>
+        </Grid>
       </Container>
     );
   }

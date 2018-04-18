@@ -31,10 +31,8 @@ class ProductCard extends PureComponent {
         <Image src={`data:image/png;base64,${this.props.images[0]}`} />
         <Card.Content>
           <Card.Header>{this.props.title}</Card.Header>
-          <Card.Meta>{this.props.category}</Card.Meta>
-          <Card.Description>
-            {this.props.description} {this.props.tags}
-          </Card.Description>
+          <Card.Meta>{this.props.tags.map(tag => <span key={tag}>#{tag}</span>)}</Card.Meta>
+          <Card.Description>{this.props.description}</Card.Description>
         </Card.Content>
         <Card.Content extra textAlign="center">
           <Icon name="tag" />
@@ -54,7 +52,6 @@ ProductCard.propTypes = {
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  category: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   id: PropTypes.string.isRequired,
   currency: PropTypes.shape({

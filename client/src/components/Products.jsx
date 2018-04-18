@@ -18,14 +18,14 @@ class Home extends PureComponent {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, filterText } = this.props;
 
-    const filteredProducts = this.props.products.filter(
+    const filteredProducts = products.filter(
       product =>
         product.title
           .concat(product.description)
           .toLowerCase()
-          .indexOf(this.props.filterText.toLowerCase()) !== -1
+          .indexOf(filterText.toLowerCase()) !== -1
     );
 
     return (
