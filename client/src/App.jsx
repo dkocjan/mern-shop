@@ -36,9 +36,6 @@ class App extends PureComponent {
       filterText: '',
       cart: [],
     };
-
-    this.handleUserInput = this.handleUserInput.bind(this);
-    this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
   }
 
   componentDidMount() {
