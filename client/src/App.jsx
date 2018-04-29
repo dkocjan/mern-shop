@@ -69,24 +69,26 @@ class App extends PureComponent {
       });
   }
 
-  handleUserInput(filterText) {
+  handleUserInput = filterText => {
     this.setState({ filterText });
-  }
+  };
 
   handleErrorModalClose = () => this.setState({ errorModalOpen: false });
 
   handleAddToCart = id => {
     const foundElement = this.state.cart.findIndex(element => element.id === id);
 
-    foundElement !== -1
-      ? this.setState({
-          cart: this.state.cart.map(
-            el => (el.id === id ? Object.assign({}, el, { amount: el.amount + 1 }) : el)
-          ),
-        })
-      : this.setState({
-          cart: [...this.state.cart, { id, amount: 1 }],
-        });
+    if (foundElement !== -1) {
+      this.setState({
+        cart: this.state.cart.map(
+          el => (el.id === id ? Object.assign({}, el, { amount: el.amount + 1 }) : el)
+        ),
+      });
+    } else {
+      this.setState({
+        cart: [...this.state.cart, { id, amount: 1 }],
+      });
+    }
   };
 
   handleRemoveFromCart = id => {

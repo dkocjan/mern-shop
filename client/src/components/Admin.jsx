@@ -4,6 +4,11 @@ import { Grid, Segment, List, Form, Image, Button, Icon } from 'semantic-ui-reac
 
 class Admin extends PureComponent {
   render() {
+    // #########
+    // ###
+    // ### TODO!
+    // ###
+    // #########
     return (
       <div>
         {this.props.isAdmin ? (
